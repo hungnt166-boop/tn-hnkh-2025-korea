@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B1B2B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>TN HNKH 2025 KOREA</title>
+<style>
+:root{
+  --brand-primary:#0B1B2B; --brand-accent:#C7A34B;
+  --bg:#0A1420; --card:#0F1E30; --text:#EAF2FF; --muted:#93a4b8;
+  --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:16px 16px 96px}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:5;backdrop-filter:saturate(1.1) blur(8px);
+  background:linear-gradient(180deg,rgba(11,27,43,.95),rgba(11,27,43,.7) 70%,rgba(11,27,43,0));border-bottom:1px solid rgba(255,255,255,.06)}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 180deg,var(--brand-accent),#0000 70%),linear-gradient(135deg,var(--brand-accent) 0%,#8e6f2c 100%);box-shadow:var(--shadow)}
+.brand h1{font-size:16px;letter-spacing:.3px;margin:0}
+.actions{display:flex;gap:8px}
+.btn{cursor:pointer;border:0;border-radius:12px;padding:10px 14px;font-weight:600;
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));color:var(--text);box-shadow:var(--shadow);transition:.2s transform}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:linear-gradient(180deg,rgba(199,163,75,.9),rgba(199,163,75,.7));color:#0b0f14}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.12)}
+.nav{display:flex;gap:8px;overflow:auto;padding:0 16px 12px}
+.chip{white-space:nowrap;border:1px solid rgba(255,255,255,.08);padding:8px 12px;border-radius:999px;font-size:13px;opacity:.9}
+.chip.active{background:var(--brand-accent);color:#0b0f14;border-color:transparent}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px}
+.grid{display:grid;gap:12px}
+@media(min-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
+.acc{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(255,255,255,.06);margin-top:12px}
+.acc summary{list-style:none;cursor:pointer;padding:14px 16px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
+  font-weight:700;display:flex;align-items:center;gap:10px}
+.acc summary::-webkit-details-marker{display:none}
+.acc .content{padding:12px 16px;background:var(--card)}
+.k{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:10px;border-bottom:1px dashed rgba(255,255,255,.08);vertical-align:top}
+.table th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase}
+.badge{display:inline-flex;gap:6px;align-items:center;padding:4px 10px;border-radius:999px;background:rgba(199,163,75,.18);color:var(--brand-accent);font-weight:700;font-size:12px}
+.mono{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.muted{color:var(--muted)}
+.toolbar{display:flex;gap:8px;margin:12px 0}
+.search{flex:1;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:10px 12px}
+.search input{flex:1;background:transparent;border:0;outline:none;color:var(--text)}
+.pill{padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-size:12px;color:var(--muted)}
+.footer{position:fixed;inset:auto 0 0 0;background:linear-gradient(180deg,rgba(11,27,43,0),rgba(11,27,43,.9));display:flex;gap:8px;justify-content:center;padding:12px}
+.hint{font-size:12px;color:var(--muted)}
+.ring:focus{outline:none;box-shadow:0 0 0 2px inset var(--brand-accent)}
+</style>
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <h1>TN HNKH 2025 KOREA</h1>
+    </div>
+    <div class="actions">
+      <button class="btn ghost ring" id="themeBtn">Đổi giao diện</button>
+      <button class="btn primary ring" id="installBtn" hidden>Cài vào màn hình</button>
+    </div>
+  </div>
+  <div class="nav" id="nav"></div>
+</header>
+
+<main class="wrap">
+  <div class="toolbar">
+    <div class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.2-4.2M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="q" type="search" placeholder="Tìm: liên hệ, lịch trình, Everland, 112, …" autocomplete="off"/>
+    </div>
+    <div class="pill">HTTPS + mở 1 lần → cài app & xem offline</div>
+  </div>
+
+  <details class="acc" open>
+    <summary>📞 Liên hệ nhanh <span class="pill" style="margin-left:6px">Ban Tổ Chức & Hỗ trợ</span></summary>
+    <div class="content grid" id="contacts"></div>
+  </details>
+
+  <details class="acc" open>
+    <summary>🧭 Lưu ý & Thông tin bay</summary>
+    <div class="content">
+      <div class="grid">
+        <div class="card">
+          <div class="k">Thời gian</div>
+          <div><strong>06 ngày 05 đêm</strong> • 14/11/2025 → 19/11/2025</div>
+          <div class="hint">Bay Vietnam Airlines</div>
+        </div>
+        <div class="card">
+          <div class="k">Chuyến bay</div>
+          <div class="mono">HAN → PUS: VN428 (00:25 → 06:10) • 15/11/2025</div>
+          <div class="mono">ICN → HAN: VN415 (18:05 → 20:55) • 19/11/2025</div>
+        </div>
+        <div class="card">
+          <div class="k">Hành lý</div>
+          <ul style="margin:.5em 0 0 1em">
+            <li>Xách tay: 1 kiện ≤ <b>12kg</b></li>
+            <li>Ký gửi: 1 kiện ≤ <b>23kg</b></li>
+            <li>Pin dự phòng ≤ <b>100Wh / 20.000mAh</b> (xách tay, không dùng trên máy bay)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="k">Số khẩn cấp</div>
+          <div class="grid">
+            <div class="badge">112 • Cảnh sát</div>
+            <div class="badge">119 • Cứu hỏa/Cấp cứu</div>
+            <div class="badge">1330 • Du lịch (có TViệt)</div>
+          </div>
+          <div class="hint" style="margin-top:8px">ĐSQ VN tại HQ: +82-2-7392065 • 28-58 Samcheong-dong, Jongno-gu, Seoul</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="acc" open>
+    <summary>🗺️ Lịch trình 6 ngày</summary>
+    <div class="content" id="itinerary"></div>
+  </details>
+
+  <details class="acc">
+    <summary>🍽️ Thực đơn theo ngày</summary>
+    <div class="content" id="menus"></div>
+  </details>
+
+  <details class="acc">
+    <summary>🌏 Thông tin Hàn Quốc</summary>
+    <div class="content" id="krinfo"></div>
+  </details>
+
+  <details class="acc">
+    <summary>💬 Câu giao tiếp nhanh (vi • han • phiên âm)</summary>
+    <div class="content">
+      <table class="table" id="phrases">
+        <thead><tr><th>Tiếng Việt</th><th>Tiếng Hàn</th><th>Phiên âm</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div class="hint">🔊 Phát âm dùng Web Speech API (trình duyệt hỗ trợ).</div>
+    </div>
+  </details>
+
+  <p class="hint" style="margin-top:16px">Tip: dùng ô tìm kiếm để lọc nhanh.</p>
+</main>
+
+<div class="footer">
+  <button class="btn ghost ring" id="compactBtn">Thu gọn mục</button>
+  <button class="btn ghost ring" id="offlineBtn">Bật xem offline</button>
+  <button class="btn primary ring" id="installNow" hidden>Cài ngay</button>
+</div>
+
+<script>
+/* DATA */
+const DATA = {
+  contacts: [
+    { group:"Đại diện BTC", name:"Chu Văn Vượng", role:"Trưởng phòng Nhân sự", phone:"0982718515" },
+    { group:"Đại diện BTC", name:"Nguyễn Hồng Thủy", role:"Phó phòng Nhân sự", phone:"0942026025" },
+    { group:"Hỗ trợ xe 1", name:"Nguyễn Đình Duẩn", role:"Trưởng nhóm KD miền Trung", phone:"0943122885" },
+    { group:"Hỗ trợ xe 2", name:"Lê Đức Anh", role:"NV KD miền Nam", phone:"0968493495" },
+    { group:"Hỗ trợ xe 3", name:"Phạm Thanh Sơn", role:"NV KD miền Bắc", phone:"0973903904" },
+    { group:"Hỗ trợ xe 3", name:"Vương Mạnh Đạt", role:"NV KD miền Bắc", phone:"0343618998" },
+    { group:"", name:"Nguyễn Thanh Sơn", role:"Trưởng nhóm KD miền Bắc", phone:"0943663968" },
+    { group:"", name:"", role:"Hoàng Trung Phong • GĐKD", phone:"0986969160" },
+    { group:"", name:"Đỗ Thị Chúc", role:"Trưởng nhóm Admin - P.KD", phone:"0862141090" },
+  ],
+  itinerary: [
+    { day:"NGÀY 1 • 14/11 (Thứ Sáu) – Hà Nội ▶ Busan",
+      items:[
+        "19:00–19:30 Tập trung tại Nhà máy TN, di chuyển ra sân bay",
+        "00:25 Cất cánh VN428 HAN→PUS",
+        "06:10–07:30 Hạ cánh & nhập cảnh Kimhae",
+        "07:30–08:30 Ăn sáng",
+        "08:30–11:00 Làng văn hóa Gamcheon",
+        "11:00–12:00 Haeundae Blueline (tàu ray ngắm biển)",
+        "12:00–13:30 Ăn trưa",
+        "13:30–14:30 Đền Haedong Yongungsa",
+        "15:30–18:00 Chợ cá Jagalchi",
+        "18:00–19:30 Ăn tối",
+        "19:30 Về khách sạn Busan"
+      ]},
+    { day:"NGÀY 2 • 15/11 (Thứ Bảy) – Busan ▶ Seoul ▶ Nami",
+      items:[
+        "06:00–07:00 Ăn sáng • 07:00–08:00 Trả phòng",
+        "08:00–11:00 Di chuyển Busan→Seoul (tàu/xe)",
+        "12:30–14:30 Ăn trưa",
+        "14:30–17:30 Tham quan đảo Nami",
+        "Tối: Ăn tối • Về khách sạn Seoul"
+      ]},
+    { day:"NGÀY 3 • 17/11 (Thứ Hai) – Seoul",
+      items:[
+        "Sáng: Ăn sáng",
+        "08:30–12:00 Trung tâm Nhân sâm HQ • Cửa hàng mỹ phẩm",
+        "12:00–13:30 Ăn trưa",
+        "13:30–17:00 Công viên Everland",
+        "18:00–21:00 Ăn tối + trải nghiệm tắm hơi Jimjilbang • Nghỉ đêm Seoul"
+      ]},
+    { day:"NGÀY 4 • 18/11 (Thứ Ba) – Seoul • Gala",
+      items:[
+        "Sáng: Ăn sáng",
+        "08:30–11:30 Miễn thuế (tinh dầu thông đỏ, Shilla…)",
+        "12:30–14:00 Cung điện Gyeongbok",
+        "14:00–15:00 Bảo tàng Dân gian Seoul",
+        "15:00–15:15 Nhà Xanh – Dinh Tổng thống",
+        "17:40–21:00 Gala tại K-Turtle, Seoul"
+      ]},
+    { day:"NGÀY 5 • 19/11 (Thứ Tư) – Seoul ▶ Hà Nội",
+      items:[
+        "06:30–08:00 Ăn sáng & trả phòng",
+        "08:30–10:00 Tháp Namsan",
+        "10:00–11:00 Làng Hanok Namsan",
+        "11:00–12:00 Quà lưu niệm",
+        "12:00–13:30 Ăn trưa • 13:30–14:30 Ra sân bay Incheon",
+        "18:05–20:55 VN415 ICN→HAN • Làm thủ tục nhập cảnh Nội Bài"
+      ]}
+  ],
+  menus: [
+    { day:"15/11", sets:["Sáng: Beef Rib Soup","Trưa: Beef Rib Soup","Tối: Seafood Hotpot / Bulgogi"] },
+    { day:"16/11", sets:["Sáng: Tại khách sạn","Trưa: Shabu Shabu","Tối: Grilled Chicken"] },
+    { day:"17/11", sets:["Sáng: Tại khách sạn","Trưa: Chicken Soup","Tối: BBQ"] },
+    { day:"18/11 (Gala)", sets:["Tối Gala: soup, salad, miến trộn, đồ chiên, cá sốt, gà nướng, bosam, sườn hầm, cơm, bánh gạo"] },
+    { day:"19/11", sets:["Sáng: Tại khách sạn","Trưa: Hajongsik"] },
+  ],
+  krinfo: [
+    { k:"Múi giờ", v:"Hàn Quốc GMT+9 (nhanh hơn VN 2 tiếng)" },
+    { k:"Tỷ giá tham khảo", v:"1.000 won ≈ 18.289 VND" },
+    { k:"Thời tiết", v:"10–19°C, đêm có thể 5°C, hanh khô" },
+    { k:"Mang theo", v:"Áo ấm mỏng nhiều lớp, đồ dưỡng ẩm, bàn chải/kem đánh răng, đầu chuyển chân cắm tròn 110/220V" },
+    { k:"Ứng dụng", v:"Kakao Map, Kakao T, Papago" },
+  ],
+  phrases: [
+    ["Xin chào","안녕하세요","An-nhong-ha-sê-yô"],
+    ["Cảm ơn","감사합니다","Kam-sa-ham-ni-tà"],
+    ["Tạm biệt (bạn đi)","안녕히 계세요","An-nhong-hi Kê-sê-yô"],
+    ["Xin lỗi (có lỗi)","죄송합니다","Chuê-sông-ham-ni-tà"],
+    ["Không phải/Không","아니요","A-ni-yô"],
+    ["Nhà vệ sinh ở đâu?","화장실 어디예요","Hoa-trang-sil O-ti-yê-yô?"],
+    ["Cái này bao nhiêu?","이거 얼마예요?","I-ko Ól-ma-yê-yô?"],
+    ["Cho tôi cái này","이거 주세요","I-ko Chu-sê-yô"],
+    ["Ga tàu điện ngầm ở đâu?","지하철역 어디예요?","Chi-ha-chól-yók O-ti-yê-yô?"],
+    ["Tính tiền giúp","계산해 주세요","Kê-san-hê Chu-sê-yô"],
+  ]
+};
+
+/* RENDER */
+const $=s=>document.querySelector(s);
+const nav=$("#nav");
+["Liên hệ","Bay","Lịch trình","Thực đơn","Thông tin","Câu nói"].forEach((t,i)=>{
+  const el=document.createElement("a");
+  el.href=["#contacts","#","#itinerary","#menus","#krinfo","#phrases"][i];
+  el.className="chip"+(i===0?" active":""); el.textContent=t; nav.appendChild(el);
+});
+const contactsWrap=$("#contacts");
+const groupContacts=DATA.contacts.reduce((m,c)=>((m[c.group||"Khác"]??=[]).push(c),m),{});
+Object.entries(groupContacts).forEach(([g,list])=>{
+  const card=document.createElement("div"); card.className="card";
+  card.innerHTML=`<div class="k">${g||"Liên hệ"}</div>`+
+    list.map(c=>`
+      <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;margin:10px 0">
+        <div><div><strong>${c.name}</strong></div><div class="muted">${c.role||""}</div></div>
+        <a class="btn" href="tel:${c.phone}">📱 ${c.phone}</a>
+      </div>`).join("");
+  contactsWrap.appendChild(card);
+});
+const itin=$("#itinerary");
+DATA.itinerary.forEach(d=>{
+  const card=document.createElement("div"); card.className="card";
+  card.innerHTML=`<div class="k">${d.day}</div><ul style="margin:.5em 0 0 1em">${d.items.map(i=>`<li>${i}</li>`).join("")}</ul>`;
+  itin.appendChild(card);
+});
+const menus=$("#menus");
+DATA.menus.forEach(d=>{
+  const card=document.createElement("div"); card.className="card";
+  card.innerHTML=`<div class="k">Ngày ${d.day}</div><ul style="margin:.5em 0 0 1em">${d.sets.map(s=>`<li>${s}</li>`).join("")}</ul>`;
+  menus.appendChild(card);
+});
+const kr=$("#krinfo");
+const tbl=document.createElement("table"); tbl.className="table";
+tbl.innerHTML="<tbody>"+DATA.krinfo.map(r=>`<tr><th>${r.k}</th><td>${r.v}</td></tr>`).join("")+"</tbody>";
+kr.appendChild(tbl);
+const phBody=document.querySelector("#phrases tbody");
+DATA.phrases.forEach(r=>{
+  const tr=document.createElement("tr");
+  tr.innerHTML=`<td>${r[0]}</td><td class="mono">${r[1]}</td><td>${r[2]}</td><td><button class="btn" data-say="${r[1]}">🔊</button></td>`;
+  phBody.appendChild(tr);
+});
+document.getElementById("q").addEventListener("input", e=>{
+  const k=e.target.value.toLowerCase();
+  document.querySelectorAll(".card, tbody tr").forEach(el=>{
+    el.style.display = el.textContent.toLowerCase().includes(k) ? "" : "none";
+  });
+});
+document.addEventListener("click", e=>{
+  const btn=e.target.closest("button[data-say]"); if(!btn) return;
+  if(!("speechSynthesis" in window)) return alert("Thiết bị không hỗ trợ phát âm.");
+  const u=new SpeechSynthesisUtterance(btn.dataset.say); u.lang="ko-KR"; u.rate=.95; u.pitch=1.05; speechSynthesis.speak(u);
+});
+document.getElementById("compactBtn").addEventListener("click", ()=>{
+  document.querySelectorAll("details.acc").forEach((d,i)=>{ d.open = i<1 ? true : !d.open; });
+});
+let light=false;
+document.getElementById("themeBtn").addEventListener("click", ()=>{
+  light=!light;
+  const set=(k,v)=>document.documentElement.style.setProperty(k,v);
+  if(light){ set('--bg','#ffffff'); set('--card','#f6f7fb'); set('--text','#0f172a'); set('--muted','#5b6b7e'); }
+  else{ set('--bg','#0A1420'); set('--card','#0F1E30'); set('--text','#EAF2FF'); set('--muted','#93a4b8'); }
+});
+
+/* PWA: register service worker */
+if('serviceWorker' in navigator){
+  window.addEventListener('load', async ()=>{
+    try{
+      const reg = await navigator.serviceWorker.register('./sw.js');
+      console.log('SW registered', reg.scope);
+    }catch(e){ console.warn('SW failed', e); }
+  });
+}
+
+/* Install prompt (Android Chrome) */
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e)=>{
+  e.preventDefault(); deferredPrompt=e;
+  const btn=document.getElementById('installBtn'); btn.hidden=false;
+  btn.onclick=async()=>{ try{ await deferredPrompt.prompt(); }catch{} finally{ deferredPrompt=null; btn.hidden=true; } };
+});
+window.addEventListener('appinstalled', ()=>{
+  document.getElementById('installBtn').hidden = true;
+});
+
+/* Offline CTA (force load to get SW control) */
+document.getElementById("offlineBtn").addEventListener("click", ()=>location.reload());
+</script>
+</body>
+</html>
